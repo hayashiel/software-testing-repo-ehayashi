@@ -1,10 +1,10 @@
 # hayashiel
-# 10-21-24
+# 11-6-24
 # https://peps.python.org/pep-0008/#comments
 # https://realpython.com/documenting-python-code/
 # Use Command python -m unittest discover -p "'custom_prefix'_*.py"
 
-# Outline:
+# Outline: (Borrowed from unittest_practice_02)
 # Create Dense Layer
 # Create Softmax Layer
 # Create Binary Logit Layer

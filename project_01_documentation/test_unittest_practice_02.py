@@ -9,14 +9,14 @@ from unittest_practice_02 import *
 class TestLinear(unittest.TestCase):
     # Set up for Unit Test
     def setUp(self):
-        self.linear = Dense(5)
+        self.linear = Dense(5, 1)
     def test_multiplication_shape(self):
         self.assertTrue(self.linear.call(np.ones((1,5))).shape, np.ones((5,1)).shape)
 
 
 class TestBinary(unittest.TestCase):
     def setUp(self):
-        self.binary = Binary(5)
+        self.binary = Binary(5, 1)
     def test_multiplication_shape(self):
         self.assertTrue(self.binary.call(np.ones((1,5))).shape, np.ones((5,1)).shape)
     def test_range_values(self):
@@ -25,7 +25,7 @@ class TestBinary(unittest.TestCase):
 
 class TestSoftmax(unittest.TestCase):
     def setUp(self):
-        self.softmax = Softmax(5)
+        self.softmax = Softmax(5,1)
     def test_multiplication_shape(self):
         self.assertTrue(self.softmax.call(np.ones((1,5))).shape, np.ones((5,1)).shape)
     def test_range_values(self):
@@ -34,6 +34,8 @@ class TestSoftmax(unittest.TestCase):
 
 class TestModel(unittest.TestCase):
     def setUp(self):
-        self.model = Model([("Dense", 100), ("Dense", 10), ("Binary", 2)])
+        self.model = Model([("Dense", 100, 10), ("Dense", 10,2), ("Binary", 2,1)])
     def test_model(self):
-        self.assertTrue(self.model.call(np.ones((5,100))) == np.ones((5,1)).shape)    
+        self.assertTrue(self.model.call(np.ones((5,100))).shape == np.ones((5,1)).shape)    
+
+
